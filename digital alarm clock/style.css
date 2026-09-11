@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050b14;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #4da6ff;
+    overflow: hidden;
+}
+
+/* Main Dashboard Outer Casing */
+.command-container {
+    width: 950px;
+    background: #091526;
+    border: 2px solid #1c3f6e;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0, 132, 255, 0.2), inset 0 0 20px rgba(0, 132, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: #0e223f;
+    color: #8bc34a;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 8px 15px;
+    border: 1px solid #234b82;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px rgba(139, 195, 74, 0.6);
+}
+
+/* HUD Screen Canvas */
+.hud-screen {
+    position: relative;
+    height: 480px;
+    background: radial-gradient(circle, #0b2242 0%, #040c18 85%);
+    border: 1px solid #1c3f6e;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    transition: background 0.3s;
+}
+
+/* Background Grid Lines */
+.hud-grid {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 150, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 150, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+/* Warning Banner */
+.warning-banner {
+    position: absolute;
+    top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.8);
+    animation: warningBlink 0.5s infinite alternate;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes warningBlink {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Left & Right Panels */
+.left-panel {
+    font-size: 20px;
+    font-weight: bold;
+    width: 60px;
+    z-index: 2;
+}
+
+.right-panel {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.side-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #72bcff;
+    margin-bottom: 5px;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+.alarm-input {
+    background: #091526;
+    border: 2px solid #234b82;
+    border-radius: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    color: #4da6ff;
+    padding: 6px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Bottom-Right Truck Display Container */
+.bottom-right-truck-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+/* Center Panel / HUD Graphic Container */
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    position: relative;
+}
+
+.countdown-wrapper {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HUD Rotating Rings */
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    pointer-events: none;
+}
+
+.outer-ring {
+    width: 340px;
+    height: 340px;
+    border-width: 2px;
+    border-color: rgba(77, 166, 255, 0.3) rgba(77, 166, 255, 0.05) rgba(77, 166, 255, 0.4) transparent;
+    animation: rotateClockwise 15s linear infinite;
+}
+
+.inner-ring {
+    width: 280px;
+    height: 280px;
+    border-width: 3px;
+    border-color: transparent rgba(77, 166, 255, 0.5) rgba(77, 166, 255, 0.1) rgba(77, 166, 255, 0.6);
+    animation: rotateCounterClockwise 10s linear infinite;
+}
+
+@keyframes rotateClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+/* Spinning Missile Launcher Truck Graphic */
+.spinning-truck-container {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border: 2px dashed rgba(77, 166, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spinTruck 8s linear infinite;
+    pointer-events: none;
+}
+
+.missile-truck {
+    position: relative;
+    width: 60px;
+    height: 26px;
+}
+
+.truck-body {
+    position: absolute;
+    bottom: 5px;
+    left: 12px;
+    width: 42px;
+    height: 12px;
+    background: rgba(77, 166, 255, 0.2);
+    border: 1px solid #4da6ff;
+    border-radius: 2px;
+}
+
+.truck-cab {
+    position: absolute;
+    bottom: 5px;
+    left: 48px;
+    width: 12px;
+    height: 15px;
+    background: rgba(77, 166, 255, 0.2);
+    border: 1px solid #4da6ff;
+    border-radius: 2px 4px 0 0;
+}
+
+.launch-pod {
+    position: absolute;
+    bottom: 15px;
+    left: 16px;
+    width: 30px;
+    height: 10px;
+    background: rgba(77, 166, 255, 0.3);
+    border: 1px solid #4da6ff;
+    transform: rotate(-25deg);
+    border-radius: 2px;
+}
+
+.missile {
+    position: absolute;
+    top: 2px;
+    left: -5px;
+    width: 26px;
+    height: 5px;
+    background: #ff3333;
+    border-radius: 6px 2px 2px 6px;
+    box-shadow: 0 0 6px #ff3333;
+}
+
+.wheel {
+    position: absolute;
+    bottom: 0;
+    width: 7px;
+    height: 7px;
+    background: #4da6ff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #4da6ff;
+}
+
+.wheel-1 { left: 15px; }
+.wheel-2 { left: 31px; }
+.wheel-3 { left: 47px; }
+
+@keyframes spinTruck {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Digital Time Readout */
+.time-display {
+    font-size: 64px;
+    font-weight: bold;
+    color: #60c5ff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(96, 197, 255, 0.7);
+    z-index: 5;
+}
+
+.blink {
+    animation: blinkColon 1s infinite;
+}
+
+@keyframes blinkColon {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.2; }
+}
+
+/* Footer & Stop Button */
+.control-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #07101e;
+    margin-top: 12px;
+    padding: 10px 15px;
+    border: 1px solid #153259;
+    border-radius: 6px;
+}
+
+.status-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    color: #9cbcdb;
+    gap: 3px;
+    letter-spacing: 1px;
+}
+
+.operational {
+    color: #4caf50;
+}
+
+.stop-btn {
+    background: linear-gradient(to bottom, #d32f2f, #9c1414);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ff5252;
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
+    transition: transform 0.1s;
+}
+
+.stop-btn:active {
+    transform: scale(0.96);
+}
+
+/* Alarm Ringing Background Effect */
+@keyframes alarmFlash {
+    0%, 100% { background: radial-gradient(circle, #0b2242 0%, #040c18 85%); }
+    50% { background: radial-gradient(circle, #420b0b 0%, #180404 85%); }
+}
+.ringing {
+    animation: alarmFlash 1s infinite;
+}

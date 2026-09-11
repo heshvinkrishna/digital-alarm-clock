@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Tactical Missile Truck Alarm Clock</title>
+</head>
+<body onload="updateTime()">
+
+    <div class="command-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            STRATEGIC COMMAND DASHBOARD - DEFCON 2
+        </div>
+
+        <!-- Main HUD Screen Area -->
+        <div class="hud-screen" id="lcd-screen">
+            <div class="hud-grid"></div>
+
+            <!-- Left Panel: AM/PM Indicator -->
+            <div class="left-panel">
+                <span id="ampm-indicator" class="pm-indicator">--</span>
+            </div>
+
+            <!-- Center Panel: Clock Display -->
+            <div class="center-panel">
+                <!-- Warning Text (Appears 18 seconds before alarm) -->
+                <div id="warning-banner" class="warning-banner hidden">HOSTILE MISSILE APPROACHING</div>
+
+                <!-- HUD Countdown/Rings Container -->
+                <div class="countdown-wrapper">
+                    <div class="ring outer-ring"></div>
+                    <div class="ring inner-ring"></div>
+
+                    <!-- Digital Time Display -->
+                    <div id="time" class="time-display">00<span class="blink">:</span>00<span class="blink">:</span>00</div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Set Alarm Input & Bottom-Right Spinning Truck Graphic -->
+            <div class="right-panel">
+                <div class="side-info">
+                    <div class="side-label">SET ALARM</div>
+                    <input type="time" id="alarmTime" class="alarm-input">
+                </div>
+
+                <!-- Spinning Missile Launcher Truck in the Bottom Right -->
+                <div class="bottom-right-truck-area">
+                    <div class="spinning-truck-container">
+                        <div class="missile-truck">
+                            <div class="truck-cab"></div>
+                            <div class="truck-body"></div>
+                            <div class="launch-pod">
+                                <div class="missile"></div>
+                            </div>
+                            <div class="wheel wheel-1"></div>
+                            <div class="wheel wheel-2"></div>
+                            <div class="wheel wheel-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Footer with Stop Button -->
+        <div class="control-footer">
+            <div class="status-info">
+                <span>WEAPON SYSTEM: VLS-4 MK.41</span>
+                <span>STATUS: <strong class="operational">OPERATIONAL</strong></span>
+            </div>
+            <div id="stopAlarm" class="stop-btn">STOP ALARM</div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="missileWarning" src="missilewarning.mp3" preload="auto"></audio>
+    <audio id="alarmSound" src="missile_explosion.mp3" preload="auto" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
