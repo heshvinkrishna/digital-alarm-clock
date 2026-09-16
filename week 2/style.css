@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* This is a comment ctrl + / */
+
+.header{
+
+    background-color: rgba(245, 43, 238, 0.684);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin:0;
+
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 10px
+}
+
+.header a:hover{
+    color: black;
+    transition: 0.5s;
+}
+
+/* Main Content Styles */
+
+.main-content{
+    background-color: lightpink;
+    margin: 0;
+    padding: 15px;
+
+}
+
+.main-content h1{
+    margin:0;
+    color: purple;
+}
+
+.main-content p{
+    font-size: 18px;
+    color: rgb(42, 113, 36)
+}
+
+/* Footer Styles */
+
+.footer{
+    background-color: magenta;
+    margin:0;
+    padding:25px;
+}
+
+.footer p{
+    margin: 0;
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
